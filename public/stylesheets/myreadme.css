@@ -103,3 +103,7 @@ z-index:999;
 .btn-plus:hover {
   color: #6b727a;
 }
+
+.notfound {
+  width: 450px;
+}
