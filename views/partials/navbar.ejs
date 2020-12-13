@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md bg-light border-bottom">
     <div class="container">
-        <a class="navbar-brand" href="#">
-           myReadme
+        <a class="navbar-brand" href="/">
+           <img src="/images/brand.svg" class="brand" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Todas os
+                    <a class="nav-link" href="/"> Todas os
                         arquivos</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -20,13 +20,13 @@
                         Pastas
                     </a>
                     <ul class="dropdown-menu scrollable-menu shadow-lg" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Sem pasta</a></li>
-                        <li><a class="dropdown-item" href="#">Compras</a></li>
-                        <li><a class="dropdown-item" href="#">Faculdade</a></li>
+                        <% folders.forEach(folder => { %>
+                            <li><a class="dropdown-item" href="/folder/<%= folder.slug %> "><%= folder.name %></a></li>  
+                        <% }) %>
                         <li>
                             <hr class="dropdown-divider bg-light">
                         </li>
-                        <li><a class="dropdown-item" href="#"> <i class="fas fa-folder-plus"></i> Criar pasta</a>
+                        <li><button type="button" class="btn btn-dark d-block mx-auto" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-folder-plus"></i> Criar pasta</a>
                         </li>
                     </ul>
                 </li>

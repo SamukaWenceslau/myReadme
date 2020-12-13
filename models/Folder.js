@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 const connection = require('../database/connection');
-//const slugify = require('slugify'); 
+const slugify = require('slugify'); 
 
 const Folder = connection.define('folders', {
     name: {
@@ -21,13 +21,15 @@ const Folder = connection.define('folders', {
 (async() => {
     Folder.sync({force: true});
 
+    
     const noFolder = Folder.build({
         name: "Sem pasta",
         slug: slugify("Sem pasta"),
     });
     
     await noFolder.save();
-
-})();*/
+    
+})();
+*/
 
 module.exports = Folder;

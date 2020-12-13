@@ -24,13 +24,12 @@ main {
   font-size: 20pt !important;
   font-weight: 600 !important; }
 
-.form-select {
+select.form-control {
   border: none !important;
   background-color: #DEE2EA !important; }
 
-.navbar-brand {
-  color: #222329;
-  font-weight: 800;
+.brand {
+  width: 150px;
 }
 
 .navbar-brand:hover {
@@ -84,4 +83,23 @@ label {
 
 .jumbotron{ 
   border-radius: 15px !important;
+}
+
+.btn-plus {
+  position:fixed;
+width:60px;
+height:60px;
+bottom:40px;
+right:40px;
+background-color:#222329;
+color:#FFF;
+border-radius:50px;
+text-align:center;
+font-size:30px;
+box-shadow: 15px 15px 30px #b9b9b9d7;
+z-index:999;
+}
+
+.btn-plus:hover {
+  color: #6b727a;
 }

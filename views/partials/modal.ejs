@@ -1,0 +1,20 @@
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content border-0 bg-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title"><i class="fas fa-folder-plus"></i> Criar pasta</h5>
+        </div>
+        <form action="/folder/add" method="POST">
+            <div class="modal-body">
+                <input type="text" class="form-control form-control-lg" name="name">
+            </div>
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-dark">Concluir</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>

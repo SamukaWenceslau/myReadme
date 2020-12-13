@@ -2,13 +2,16 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 const connection = require('./database/connection');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-//const Folder = require('./models/Folder');
+const Folder = require('./models/Folder');
+const File = require('./models/File');
+const User = require('./models/User');
 
 const app = express();
 
@@ -21,9 +24,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+// Body parser
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app
 
 // Database
 
@@ -53,7 +63,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {title: 'Error'});
 });
 
 module.exports = app;

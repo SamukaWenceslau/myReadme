@@ -15,7 +15,11 @@ const File = connection.define('files' , {
         allowNull: false
     },
     body: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
+    },
+    date_post: {
+        type: Sequelize.STRING,
+        allowNull: false
     },
     deletedFlag: {
         type: Sequelize.BOOLEAN,
@@ -33,6 +37,8 @@ File.belongsTo(Folder);
 User.hasMany(File);
 File.belongsTo(User);
 
-// Files.sync({force: true});
+//File.sync({force: true});
+
+module.exports = File;
 
 

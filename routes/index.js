@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+const FilesController = require('../controller/FilesController');
+const FoldersController = require('../controller/FoldersController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router
+    .get('/', FilesController.index)
+    .get('/folder/:slug', FoldersController.show)
+    .get('/file', FoldersController.index)
+    .get('/file/:slug', FilesController.show)
+    .post('/file/add', FilesController.create)
+    .post('/file/edit', FilesController.edit)
+    .post('/folder/add', FoldersController.create)
 
 module.exports = router;
