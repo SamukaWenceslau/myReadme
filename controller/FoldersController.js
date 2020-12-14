@@ -1,8 +1,7 @@
 const slugify = require('slugify');
 const Folder = require('../models/Folder');
 const File = require('../models/File');
-
-
+const { Op } = require('sequelize');
 
 module.exports = {
     async index(req, res, next) {
@@ -23,7 +22,9 @@ module.exports = {
             })
             
             File.findAll({
-                where: {folderId: folder.id}
+                where: {
+                    [Op.and]: [{ folderId: folder.id }, {deletedFlag: 0}]
+                }
             }).then(files => {
                 Folder.findAll().then(folders => {
                     res.render('folder', {

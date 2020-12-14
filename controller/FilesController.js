@@ -3,10 +3,12 @@ const getDate = require('../helpers/getDate');
 const File = require('../models/File');
 const Folder = require('../models/Folder');
 
+
 module.exports = {
     async index(req, res, next) {
         try {
             const files = await File.findAll({
+                where: {deletedFlag: 0},
                 include: [{model: Folder}]
             });
             const folders = await Folder.findAll();
@@ -16,6 +18,7 @@ module.exports = {
             next(error)
         }
     },
+
     async show(req, res, next) {
         try {
             const { slug } = req.params;
@@ -30,6 +33,7 @@ module.exports = {
             next(error)
         }
     },
+
     async create(req, res, next) {
         try {
             const {filename, folderId, body} = req.body;
@@ -50,6 +54,7 @@ module.exports = {
             next(error)
         }
     },
+
     async edit(req, res, next) {
         try {
             const {id, filename, folderId, body} = req.body;
@@ -67,6 +72,19 @@ module.exports = {
         } catch (error) {
             next(error)
         }
-    }
+    },
 
+    async delete(req, res, next) {
+        try {
+            const { id } = req.body;
+
+            await File.update({
+                deletedFlag: 1
+            }, {where: { id }});
+
+            res.redirect('/');
+        } catch (error) {
+            next(error)
+        }
+    }
 }

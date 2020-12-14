@@ -12,6 +12,7 @@ router
     .get('/file/:slug', FilesController.show)
     .post('/file/add', FilesController.create)
     .post('/file/edit', FilesController.edit)
+    .post('/file/delete', FilesController.delete)
     .post('/folder/add', FoldersController.create)
 
 module.exports = router;
