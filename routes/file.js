@@ -4,15 +4,20 @@ const router = express.Router();
 const FilesController = require('../controller/FilesController');
 const FoldersController = require('../controller/FoldersController');
 
-/* GET home page. */
+
 router
-    .get('/', FilesController.index)
-    .get('/folder/:slug', FoldersController.show)
-    .get('/file', FoldersController.index)
-    .get('/file/:slug', FilesController.show)
+    .get('/', FilesController.index) // Index
+    .get('/file/:slug', FilesController.show) // Edit
+    .get('/trash', FilesController.indexDeleted)  // Trash
+
+router
     .post('/file/add', FilesController.create)
     .post('/file/edit', FilesController.edit)
     .post('/file/delete', FilesController.delete)
-    .post('/folder/add', FoldersController.create)
+    .post('/file/restore', FilesController.restore)
+
+
+
+
 
 module.exports = router;

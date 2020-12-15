@@ -1,0 +1,39 @@
+<%- include("./partials/header.ejs") %>
+
+<main>
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-xl-4 col-lg-5 col-md-8 col-sm-10 col-12 mt-3">
+                <div class="jumbotron bg-light shadow-lg">
+                    <div class="container">
+
+                        <form action="/register" method="POST">
+                            <label for="">Usuário *</label>
+                            <input type="text" class="form-control form-control-lg login mb-3" name="nickname">
+    
+                            <label for="">E-mail *</label>
+                            <input type="text" class="form-control form-control-lg login mb-3" name="email">
+    
+                            <label for="">Senha *</label>
+                            <input type="password" class="form-control form-control-lg login" name="password">
+    
+                            <button type="submit" class="btn btn-dark btn-block btn-lg mt-5 mb-3">Registrar <i class="fas fa-sign-in-alt"></i></button>
+                        </form>
+                    
+                        <a href="/login" class="btn btn-outline-secondary btn-block btn-lg ">Voltar</a>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-6 d-none d-lg-block align-self-center">
+                <img src="/images/brand.svg" class="img-fluid w-50 d-block mx-auto" alt="">
+                <img src="/images/icon-welcome.svg" class="img-fluid w-100 d-block mx-auto" alt="">
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<%- include("./partials/footer.ejs") %>

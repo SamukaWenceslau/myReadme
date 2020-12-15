@@ -6,8 +6,9 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const connection = require('./database/connection');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const fileRoutes = require('./routes/file');
+const folderRoutes = require('./routes/folder');
+const userRoutes = require('./routes/user');
 
 const Folder = require('./models/Folder');
 const File = require('./models/File');
@@ -30,10 +31,11 @@ app.use('/scripts', express.static(path.join(__dirname, '/node_modules/jquery/di
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
-app
+app.use('/', fileRoutes);
+app.use('/', folderRoutes);
+app.use('/', userRoutes);
+
 
 // Database
 

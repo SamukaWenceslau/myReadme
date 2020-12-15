@@ -19,9 +19,8 @@ const Folder = connection.define('folders', {
 
 /*
 (async() => {
-    Folder.sync({force: true});
+    await Folder.sync({force: true});
 
-    
     const noFolder = Folder.build({
         name: "Sem pasta",
         slug: slugify("Sem pasta"),

@@ -4,14 +4,14 @@
         <main>
             <div class="container">
                 <% if (files.length !==0) { %>
-                    <h3>Todas as seus arquivos</h3>
+                    <h3>Lixeira</h3>
 
                     <div class="row justify-content-center mt-5">
                         <% files.forEach(file=> { %>
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 my-3">
                                 <div class="card shadow">
                                     <div class="card-body">
-                                        <a href="/file/<%= file.slug %> " class="card-link">
+                                        
                                             <h5 class="card-title">
                                                 <%= file.filename %>
                                             </h5>
@@ -22,15 +22,13 @@
                                             <p class="text-date my-4">
                                                 <%= file.date_post %>
                                             </p>
-                                        </a>
+                                        
 
-                                        <form action="/file/delete" method="POST" 
-                                            onsubmit="confirmDelete(event, this)">
+                                        <form action="/file/restore" method="POST">
 
                                             <input type="hidden" name="id" value="<%= file.id %>">
 
-                                            <button class="btn btn-danger mt-4" type="submit"><i
-                                                    class="fas fa-trash"></i></button>
+                                            <button class="btn btn-primary mt-4" type="submit"><i class="fas fa-undo-alt"></i> Restaurar</button>
                                         </form>
                                     </div>
 
@@ -47,11 +45,11 @@
                                 <img src="/images/icon-notfound.svg" class="img-fluid  d-block mx-auto notfound"
                                     alt="icon-notfound">
 
-                                <h5 class="text-center font-weight-bold my-4">Você ainda não possui arquivos</h5>
+                                <h5 class="text-center font-weight-bold my-4">Sua lixeira está limpa</h5>
 
                             </div>
                         </div>
-                    <% } %>
+                        <% } %>
             </div>
         </main>
 

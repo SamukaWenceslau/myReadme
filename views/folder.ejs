@@ -1,48 +1,60 @@
 <%- include("./partials/header.ejs") %>
 <%- include("./partials/navbar.ejs") %>
 
-<main>
-  <div class="container">
-      <h3><i class="fas fa-folder"></i> <%= title %> </h3>
-      <% if (files.length !== 0) { %>
+        <main>
+            <div class="container">
+                <h3><i class="fas fa-folder"></i>
+                    <%= title %>
+                </h3>
+                <% if (files.length !==0) { %>
 
-        <div class="row justify-content-center mt-5">
-            <% files.forEach(file => { %>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 my-3">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <a href="/file/<%= file.slug %> " class="card-link">
-                                <h5 class="card-title"><%= file.filename %> </h5>
-      
-                                
-                                <p class="text-date my-4"><%= file.date_post %> </p>
-                            </a>
-      
-                            <button class="btn btn-danger mt-4" type="submit"><i class="fas fa-trash"></i></button>
-      
-                        </div>
-      
+                    <div class="row justify-content-center mt-5">
+                        <% files.forEach(file=> { %>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 my-3">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <a href="/file/<%= file.slug %> " class="card-link">
+                                            <h5 class="card-title">
+                                                <%= file.filename %>
+                                            </h5>
+
+
+                                            <p class="text-date my-4">
+                                                <%= file.date_post %>
+                                            </p>
+                                        </a>
+
+                                        <form action="/file/delete" method="POST" onsubmit="confirmDelete(event, this)">
+
+                                            <input type="hidden" name="id" value="<%= file.id %>">
+
+                                            <button class="btn btn-danger mt-4" type="submit"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <% }) %>
                     </div>
-                </div> 
-            <% }) %>
-        </div>
 
-       <% } else { %>
-        
-        <div class="row justify-content-center">
-            <div class="col">
-                <img src="/images/icon-notfound.svg" class="img-fluid d-block mx-auto notfound" alt="icon-notfound">
+                    <% } else { %>
 
-                <h5 class="text-center font-weight-bold my-4">Não há arquivos nessa pasta</h5>
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <img src="/images/icon-notfound.svg" class="img-fluid d-block mx-auto notfound"
+                                    alt="icon-notfound">
 
+                                <h5 class="text-center font-weight-bold my-4">Não há arquivos nessa pasta</h5>
+
+                            </div>
+                        </div>
+                        <% } %>
             </div>
-        </div>
-      <% } %>
-  </div>
-</main>
+        </main>
 
-<a href="/file" class="btn-plus"><i class="fas fa-plus mt-3"></i></a>
+        <a href="/file" class="btn-plus"><i class="fas fa-plus mt-3"></i></a>
 
-<%- include("./partials/modal.ejs") %> 
+<%- include("./partials/modal.ejs") %>
 <%- include("./partials/footer.ejs") %>
-
