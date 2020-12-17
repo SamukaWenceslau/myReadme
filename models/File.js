@@ -33,11 +33,11 @@ Folder.hasMany(File);
 File.belongsTo(Folder);
 
 // User and File
-
+ 
 User.hasMany(File);
 File.belongsTo(User);
 
-//File.sync({force: true});
+File.sync({force: true});
 
 module.exports = File;
 

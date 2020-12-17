@@ -1,3 +1,6 @@
+* {
+  font-family: 'Roboto', sans-serif; }
+
 body {
   background-color: #f0f3f5 !important; }
 
@@ -11,11 +14,63 @@ main {
 .card-body {
   padding: 25px !important; }
 
+.jumbotron{ 
+  border-radius: 15px !important;
+}
+
+/* LINK */
+
+.nav-link {
+  color: #222329;
+  font-weight: 500;
+  font-size: 11pt; }
+
+.nav-link:hover {
+   color: #6b727a;
+}
+
+.dropdown-item {
+  font-weight: 500 !important;
+  font-size: 15px; }
+
 .scrollable-menu {
   height: auto;
   max-height: 200px;
   overflow-x: hidden;
   border: none !important; }
+
+.card-link {
+  text-decoration: none;
+  color: #222329; }
+
+.card-link:hover {
+  text-decoration: none;
+  color: #222329; }
+
+
+/* TEXT */
+
+.card-title {
+  font-weight: 600;
+  margin-top: 10px;
+  height: 5rem; }
+
+.text-date {
+  color: #707070;
+  font-size: 13px;
+  font-weight: 400; }
+
+/* FORM */
+
+label {
+  font-weight: 500;
+  font-size: 10pt;
+}
+
+.login {
+  background-color: #dadee2 !important;
+  border: none !important;
+}
 
 .filename {
   background-color: transparent !important;
@@ -28,62 +83,18 @@ select.form-control {
   border: none !important;
   background-color: #DEE2EA !important; }
 
+
+/* IMAGE */
+
 .brand {
   width: 150px;
 }
 
-.navbar-brand:hover {
-  color: #6b727a;
+.notfound {
+  width: 450px;
 }
 
-
-.nav-link {
-  color: #222329;
-  font-weight: 500;
-  font-size: 11pt; }
-
-.nav-link:hover {
-   color: #6b727a;
-}
-
-* {
-  font-family: 'Roboto', sans-serif; }
-
-.card-title {
-  font-weight: 600;
-  margin-top: 10px;
-  height: 5rem; }
-
-.text-date {
-  color: #707070;
-  font-size: 13px;
-  font-weight: 400; }
-
-.card-link {
-  text-decoration: none;
-  color: #222329; }
-
-.card-link:hover {
-  text-decoration: none;
-  color: #222329; }
-
-.dropdown-item {
-  font-weight: 500 !important;
-  font-size: 15px; }
-
-.login {
-  background-color: #dadee2 !important;
-  border: none !important;
-}
-
-label {
-  font-weight: 500;
-  font-size: 10pt;
-}
-
-.jumbotron{ 
-  border-radius: 15px !important;
-}
+/* BUTTON */
 
 .btn-plus {
   position:fixed;
@@ -104,6 +115,3 @@ z-index:999;
   color: #6b727a;
 }
 
-.notfound {
-  width: 450px;
-}

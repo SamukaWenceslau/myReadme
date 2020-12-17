@@ -1,4 +1,3 @@
-const slugify = require('slugify');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
@@ -22,11 +21,10 @@ module.exports = {
                         password: hash,
                     })
                         
-                    //req.flash("success", "Usuário cadastrado com sucesso :)");
                     res.redirect("/");
                     
             } else {
-                //req.flash("error", "Usuário já existe");
+                req.flash("err", "Usuário já existe");
                 res.redirect("/register");
             }
             

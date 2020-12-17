@@ -1,20 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const { accessControl } = require('../helpers/accessControl');
 
 const FilesController = require('../controller/FilesController');
-const FoldersController = require('../controller/FoldersController');
 
 
-router
-    .get('/', FilesController.index) // Index
-    .get('/file/:slug', FilesController.show) // Edit
-    .get('/trash', FilesController.indexDeleted)  // Trash
 
 router
-    .post('/file/add', FilesController.create)
-    .post('/file/edit', FilesController.edit)
-    .post('/file/delete', FilesController.delete)
-    .post('/file/restore', FilesController.restore)
+    .get('/', accessControl, FilesController.index) // Index
+    .get('/file/:slug', accessControl, FilesController.show) // Edit
+    .get('/trash', accessControl, FilesController.indexDeleted)  // Trash
+
+router
+    .post('/file/add', accessControl, FilesController.create)
+    .post('/file/edit', accessControl, FilesController.edit)
+    .post('/file/delete', accessControl, FilesController.delete)
+    .post('/file/restore', accessControl, FilesController.restore)
 
 
 

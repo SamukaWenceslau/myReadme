@@ -1,61 +1,73 @@
 <%- include("./partials/header.ejs") %>
 <%- include("./partials/navbar.ejs") %>
 
-        <main>
-            <div class="container">
-                <% if (files.length !==0) { %>
-                    <h3>Todas as seus arquivos</h3>
+        <% if (success.length> 0) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <h6>
+                        <%= success %> <i class="fas fa-check"></i>
+                    </h6>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <% } %>
 
-                    <div class="row justify-content-center mt-5">
-                        <% files.forEach(file=> { %>
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 my-3">
-                                <div class="card shadow">
-                                    <div class="card-body">
-                                        <a href="/file/<%= file.slug %> " class="card-link">
-                                            <h5 class="card-title">
-                                                <%= file.filename %>
-                                            </h5>
+                <main>
+                    <div class="container">
+                        <% if (files.length !==0) { %>
+                            <h3>Todas as seus arquivos</h3>
 
-                                            <h6 class="text-secondary"><i class="fas fa-folder"></i>
-                                                <%= file.folder.name %>
-                                            </h6>
-                                            <p class="text-date my-4">
-                                                <%= file.date_post %>
-                                            </p>
-                                        </a>
+                            <div class="row justify-content-center mt-5">
+                                <% files.forEach(file=> { %>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 my-3">
+                                        <div class="card shadow">
+                                            <div class="card-body">
+                                                <a href="/file/<%= file.slug %> " class="card-link">
+                                                    <h5 class="card-title">
+                                                        <%= file.filename %>
+                                                    </h5>
 
-                                        <form action="/file/delete" method="POST" 
-                                            onsubmit="confirmDelete(event, this)">
+                                                    <h6 class="text-secondary"><i class="fas fa-folder"></i>
+                                                        <%= file.folder.name %>
+                                                    </h6>
+                                                    <p class="text-date my-4">
+                                                        <%= file.date_post %>
+                                                    </p>
+                                                </a>
 
-                                            <input type="hidden" name="id" value="<%= file.id %>">
+                                                <form action="/file/delete" method="POST"
+                                                    onsubmit="confirmDelete(event, this)">
 
-                                            <button class="btn btn-danger mt-4" type="submit"><i
-                                                    class="fas fa-trash"></i></button>
-                                        </form>
+                                                    <input type="hidden" name="id" value="<%= file.id %>">
+
+                                                    <button class="btn btn-danger mt-4" type="submit"><i
+                                                            class="fas fa-trash"></i></button>
+                                                </form>
+                                            </div>
+
+                                        </div>
                                     </div>
+                                    <% }) %>
 
+                            </div>
+
+                            <% } else { %>
+
+                                <div class="row justify-content-center mt-5">
+                                    <div class="col">
+                                        <img src="/images/icon-notfound.svg" class="img-fluid  d-block mx-auto notfound"
+                                            alt="icon-notfound">
+
+                                        <h5 class="text-center font-weight-bold my-4">Você ainda não possui arquivos
+                                        </h5>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <% }) %>
-
+                                <% } %>
                     </div>
+                </main>
 
-                    <% } else { %>
-
-                        <div class="row justify-content-center mt-5">
-                            <div class="col">
-                                <img src="/images/icon-notfound.svg" class="img-fluid  d-block mx-auto notfound"
-                                    alt="icon-notfound">
-
-                                <h5 class="text-center font-weight-bold my-4">Você ainda não possui arquivos</h5>
-
-                            </div>
-                        </div>
-                    <% } %>
-            </div>
-        </main>
-
-        <a href="/file" class="btn-plus"><i class="fas fa-plus mt-3"></i></a>
+                <a href="/file" class="btn-plus"><i class="fas fa-plus mt-3"></i></a>
 
 <%- include("./partials/modal.ejs") %>
 <script src="/javascripts/delete.js"></script>

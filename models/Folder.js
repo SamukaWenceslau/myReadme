@@ -2,6 +2,8 @@ const { Sequelize } = require('sequelize');
 const connection = require('../database/connection');
 const slugify = require('slugify'); 
 
+const User = require('./User');
+
 const Folder = connection.define('folders', {
     name: {
         type: Sequelize.STRING,
@@ -17,9 +19,13 @@ const Folder = connection.define('folders', {
     }
 });
 
+User.hasMany(Folder);
+Folder.belongsTo(User);
+
+Folder.sync({force: true});
+
 /*
 (async() => {
-    await Folder.sync({force: true});
 
     const noFolder = Folder.build({
         name: "Sem pasta",

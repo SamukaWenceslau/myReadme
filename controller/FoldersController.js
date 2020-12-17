@@ -6,9 +6,11 @@ const { Op } = require('sequelize');
 module.exports = {
     async index(req, res, next) {
         try {
-            const folders = await Folder.findAll();
+            const folders = await Folder.findAll({
+                where: {userId: req.user.id}
+            });
 
-            res.render('add', {title: "Add", folders});
+            res.render('add', {title: "Criar arquivo", folders});
         } catch (error) {
             next(error)
         }
@@ -18,15 +20,17 @@ module.exports = {
             const { slug } = req.params;
 
             const folder = await Folder.findOne({
-                where: { slug }
+                where: {[Op.and]: [{ slug }, {userId: req.user.id}]}
             })
             
             File.findAll({
                 where: {
-                    [Op.and]: [{ folderId: folder.id }, {deletedFlag: 0}]
+                    [Op.and]: [{ folderId: folder.id }, {deletedFlag: 0}, {userId: req.user.id}]
                 }
             }).then(files => {
-                Folder.findAll().then(folders => {
+                Folder.findAll({
+                    where: {userId: req.user.id}
+                }).then(folders => {
                     res.render('folder', {
                         title: folder.name,
                         files,
@@ -45,7 +49,8 @@ module.exports = {
 
             await Folder.create({
                 name,
-                slug: slugify(name)
+                slug: slugify(name),
+                userId: req.user.id
             })
 
             res.redirect(`/folder/${slugify(name)}`);
