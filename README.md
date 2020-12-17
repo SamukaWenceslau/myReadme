@@ -11,16 +11,16 @@
 
 > **Aviso: Neste projeto utilizei o MySQL, recomendo que utilize esse mesmo banco de dados para evitar uma possível incompatibilidade. ** 
 
-1. Faça um clone esse repositório na sua máquina;
+1. Faça um clone desse repositório na sua máquina;
 
 	`https://github.com/SamukaWenceslau/Estudos_Node.git`
 
-2. Após clonar o repositório, navegue até a pasta `/backend` e instale as dependências do projeto;
+2. Após clonar o repositório, navegue até a pasta `/myReadme` e instale as dependências do projeto;
 	```sh
 		npm install
 	```
 
-3. Agora com as dependências instaladas, iremos baixar o editor de markdown. Acesse esse o link abaixo e faça o download do programa.
+3. Agora com as dependências instaladas, iremos baixar o editor de markdown. Acesse o link abaixo e faça o download do programa.
 
 	[`https://pandao.github.io/editor.md/en.html`](https://pandao.github.io/editor.md/en.html) 
 	
@@ -45,7 +45,7 @@
 	npm run dev
 	```
 
-7. Pronto! Agora é só ir no seu browser favorito e acessar a rota [`http://localhost:3000`](http://localhost:3000/)
+7. Pronto! Agora é só ir no seu navegador favorito e acessar a rota [`http://localhost:3000`](http://localhost:3000/)
 
 ## Objetivo
 
