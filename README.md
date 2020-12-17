@@ -17,7 +17,7 @@
 
 2. Após clonar o repositório, navegue até a pasta `/myReadme` e instale as dependências do projeto;
 	```sh
-		npm install
+	npm install
 	```
 
 3. Agora com as dependências instaladas, iremos baixar o editor de markdown. Acesse o link abaixo e faça o download do programa.
@@ -27,7 +27,7 @@
 	Ele virá em uma pasta compactada, extraí-a, copie e cole dentro da pasta `/public` do projeto.
 	```sh
 	public/
-		└ editor.md/
+	└ editor.md/
 	```
 4. Após instalar todas as dependências do projeto, vá até sua ferramenta de gerenciamento de banco de dados, e crie um banco.
 
