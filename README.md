@@ -13,7 +13,7 @@
 
 1. Faça um clone desse repositório na sua máquina;
 
-	`https://github.com/SamukaWenceslau/Estudos_Node.git`
+	`https://github.com/SamukaWenceslau/myReadme.git`
 
 2. Após clonar o repositório, navegue até a pasta `/myReadme` e instale as dependências do projeto;
 	```sh
